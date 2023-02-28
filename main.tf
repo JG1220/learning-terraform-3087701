@@ -87,7 +87,7 @@ module "alb" {
 module "blog_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   
-  version     = "4.13.0"
+  version     = "4.17.1"
   name        = "blog"
   description = "Creating security group module"
   vpc_id      = module.vpc.public_subnets[0]
