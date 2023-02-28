@@ -90,7 +90,7 @@ module "blog_sg" {
   version     = "4.17.1"
   name        = "blog"
   description = "Creating security group module"
-  vpc_id      = vpc-0e1bb2770ea0b9ede
+  vpc_id      = module.vpc.vpc_id
 
   ingress_rules       = ["http-80-tcp","https-443-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
