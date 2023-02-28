@@ -52,8 +52,8 @@ module "alb" {
 
   load_balancer_type = "application"
 
-  vpc_id = module.blog_vpc.vpc_id
-  subnets = module.blog_vpc.public_subnets[0]
+  vpc_id = module.vpc.vpc_id
+  subnets = module.vpc.public_subnets[0]
   security_groups = module_blog_sg.security_group_id
 
   target_groups = [
