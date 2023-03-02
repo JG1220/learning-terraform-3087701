@@ -16,7 +16,7 @@ data "aws_ami" "app_ami" {
 
 module "blog_vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~"
+  
 
   name = var.environment.name
   cidr = "${var.environment.network_prefix}.0.0/16"
@@ -34,7 +34,7 @@ module "blog_vpc" {
 
 module "autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
-  version = "~"
+  
   # insert the 1 required variable here
 
   name = "${var.environment.name}-blog"
@@ -51,7 +51,7 @@ module "autoscaling" {
 
 module "blog_alb" {
   source = "terraform-aws-modules/alb/aws"
-  version = "~"
+  
 
   name = "${var.environment.name}-blog-alb"
 
@@ -86,7 +86,7 @@ module "blog_alb" {
 module "blog_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   
-  version = "~"
+  
   name        = "${var.environment.name}-blog"
   description = "Creating security group module"
   vpc_id      = module.vpc.vpc_id
